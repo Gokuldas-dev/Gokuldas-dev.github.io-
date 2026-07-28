@@ -6,11 +6,53 @@
     <title>Gokuldas Shenoy K | Cloud DevOps Engineer</title>
     <style>
         :root {
+            /* Fonts */
+            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            
+            /* Light Theme */
             --text-main: #1d1d1f; 
             --text-muted: #515154;
             --accent: #0066cc; 
-            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            --bg-color: #f5f5f7;
+            --grad-1: rgba(186, 230, 253, 1);
+            --grad-2: rgba(254, 205, 211, 1);
+            --grad-3: rgba(221, 214, 254, 1);
+            --grad-4: rgba(253, 230, 138, 1);
+            --glass-bg: rgba(255, 255, 255, 0.45);
+            --glass-border: rgba(255, 255, 255, 0.6);
+            --glass-shadow: rgba(0, 0, 0, 0.05);
+            --dock-bg: rgba(255, 255, 255, 0.35);
+            --dock-border: rgba(255, 255, 255, 0.7);
+            --dock-item-bg: rgba(255, 255, 255, 0.5);
+            --dock-hover-bg: rgba(255, 255, 255, 0.9);
+            --cloud-fill: rgba(255, 255, 255, 0.5);
+            --modal-overlay: rgba(255, 255, 255, 0.3);
+            --code-bg: rgba(0, 0, 0, 0.05);
+            --divider: rgba(0, 0, 0, 0.08);
+        }
+
+        body.dark-mode {
+            /* Dark Theme */
+            --text-main: #f5f5f7; 
+            --text-muted: #a1a1a6;
+            --accent: #4dabf7; 
+            --bg-color: #111111;
+            --grad-1: rgba(14, 165, 233, 0.2);
+            --grad-2: rgba(244, 63, 94, 0.2);
+            --grad-3: rgba(139, 92, 246, 0.2);
+            --grad-4: rgba(245, 158, 11, 0.25);
+            --glass-bg: rgba(30, 30, 30, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-shadow: rgba(0, 0, 0, 0.3);
+            --dock-bg: rgba(30, 30, 30, 0.45);
+            --dock-border: rgba(255, 255, 255, 0.15);
+            --dock-item-bg: rgba(50, 50, 50, 0.5);
+            --dock-hover-bg: rgba(80, 80, 80, 0.9);
+            --cloud-fill: rgba(255, 255, 255, 0.05);
+            --modal-overlay: rgba(0, 0, 0, 0.6);
+            --code-bg: rgba(255, 255, 255, 0.1);
+            --divider: rgba(255, 255, 255, 0.1);
         }
 
         body {
@@ -22,21 +64,21 @@
             display: flex;
             justify-content: center;
             min-height: 100vh;
+            transition: background-color 0.5s ease, color 0.5s ease;
             
             /* macOS-style pastel mesh gradient background */
-            background-color: #f5f5f7;
+            background-color: var(--bg-color);
             background-image: 
-                radial-gradient(at 80% 0%, rgba(186, 230, 253, 1) 0px, transparent 50%),
-                radial-gradient(at 0% 50%, rgba(254, 205, 211, 1) 0px, transparent 50%),
-                radial-gradient(at 80% 100%, rgba(221, 214, 254, 1) 0px, transparent 50%),
-            radial-gradient(at 0% 0%, rgba(253, 230, 138, 1) 0px, transparent 50%);
-        background-attachment: fixed;
-        
-        background-size: 200% 200%;
-        animation: gradientShift 20s ease infinite;
-    }
+                radial-gradient(at 80% 0%, var(--grad-1) 0px, transparent 50%),
+                radial-gradient(at 0% 50%, var(--grad-2) 0px, transparent 50%),
+                radial-gradient(at 80% 100%, var(--grad-3) 0px, transparent 50%),
+                radial-gradient(at 0% 0%, var(--grad-4) 0px, transparent 50%);
+            background-attachment: fixed;
+            background-size: 200% 200%;
+            animation: gradientShift 20s ease infinite;
+        }
 
-    /* --- MAIN PORTFOLIO CONTAINER --- */
+        /* --- MAIN PORTFOLIO CONTAINER --- */
         .container {
             max-width: 700px;
             width: 100%;
@@ -44,12 +86,13 @@
             box-sizing: border-box;
 
             /* Liquid Glass Effect */
-            background: rgba(255, 255, 255, 0.45); 
+            background: var(--glass-bg); 
             backdrop-filter: blur(24px); 
             -webkit-backdrop-filter: blur(24px); 
-            border: 1px solid rgba(255, 255, 255, 0.6); 
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05); 
+            border: 1px solid var(--glass-border); 
+            box-shadow: 0 8px 32px 0 var(--glass-shadow); 
             border-radius: 24px; 
+            transition: all 0.5s ease;
         }
 
         /* Typography & Layout */
@@ -62,7 +105,7 @@
         }
         .header-meta code {
             color: var(--accent);
-            background: rgba(0, 0, 0, 0.05);
+            background: var(--code-bg);
             padding: 2px 6px;
             border-radius: 4px;
         }
@@ -70,7 +113,7 @@
             font-size: 2.5rem;
             letter-spacing: -0.05em;
             margin: 0 0 5px 0;
-            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+            border-bottom: 2px solid var(--divider);
             padding-bottom: 10px;
         }
         h2 { font-size: 1.25rem; margin-top: 40px; margin-bottom: 15px; font-weight: 600; }
@@ -85,7 +128,7 @@
             margin-bottom: 40px;
             display: block;
         }
-        hr { border: 0; border-top: 1px solid rgba(0, 0, 0, 0.08); margin: 40px 0; }
+        hr { border: 0; border-top: 1px solid var(--divider); margin: 40px 0; }
         
         .release-entry { margin-bottom: 30px; }
         .release-meta { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 5px; }
@@ -95,7 +138,7 @@
         a { color: var(--accent); text-decoration: none; transition: all 0.2s ease; }
         a:hover { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 4px; }
         
-        /* --- GLASS BUTTON (RESUME) --- */
+        /* --- GLASS BUTTON --- */
         .glass-btn {
             display: inline-flex;
             align-items: center;
@@ -106,26 +149,27 @@
             font-size: 0.95rem;
             color: var(--text-main);
             text-decoration: none;
-            background: rgba(255, 255, 255, 0.6);
+            background: var(--glass-bg);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.9);
+            border: 1px solid var(--glass-border);
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 15px var(--glass-shadow);
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1.2);
+            cursor: pointer;
         }
         
-        a.glass-btn:hover {
+        a.glass-btn:hover, button.glass-btn:hover {
             transform: translateY(-3px) scale(1.05);
-            background: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            background: var(--dock-hover-bg);
+            box-shadow: 0 8px 20px var(--glass-shadow);
             color: var(--accent);
             text-decoration: none;
         }
 
         .glass-btn:active {
             transform: translateY(2px) scale(0.98);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 8px var(--glass-shadow);
         }
 
         .glass-btn svg {
@@ -139,7 +183,7 @@
         footer {
             margin-top: 60px;
             padding-top: 20px;
-            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            border-top: 1px solid var(--divider);
             font-size: 0.85rem;
             color: var(--text-muted);
             display: flex;
@@ -156,25 +200,25 @@
             gap: 15px;
             padding: 12px 18px;
             
-            /* Glassmorphism for the Dock body */
-            background: rgba(255, 255, 255, 0.35);
+            background: var(--dock-bg);
             backdrop-filter: blur(30px) saturate(150%);
             -webkit-backdrop-filter: blur(30px) saturate(150%);
-            border: 1px solid rgba(255, 255, 255, 0.7);
-            border-top: 1px solid rgba(255, 255, 255, 0.9);
+            border: 1px solid var(--dock-border);
+            border-top: 1px solid var(--glass-border);
             border-radius: 30px;
             box-shadow: 
-                0 15px 35px rgba(0, 0, 0, 0.1), 
-                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+                0 15px 35px var(--glass-shadow), 
+                inset 0 1px 0 var(--glass-border);
             z-index: 1000;
+            transition: all 0.5s ease;
         }
 
         .dock-item {
             position: relative;
             width: 55px;
             height: 55px;
-            background: rgba(255, 255, 255, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.7);
+            background: var(--dock-item-bg);
+            border: 1px solid var(--dock-border);
             border-radius: 16px; 
             display: flex;
             justify-content: center;
@@ -182,7 +226,8 @@
             color: var(--text-main);
             text-decoration: none;
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1.2); 
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 10px var(--glass-shadow);
+            cursor: pointer;
         }
 
         .dock-item svg {
@@ -197,18 +242,18 @@
         /* Hover Physics */
         .dock-item:hover {
             transform: translateY(-12px) scale(1.15);
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid #ffffff;
+            background: var(--dock-hover-bg);
+            border: 1px solid var(--glass-border);
             box-shadow: 
-                0 15px 25px rgba(0, 0, 0, 0.12), 
-                inset 0 2px 5px rgba(255, 255, 255, 1);
+                0 15px 25px var(--glass-shadow), 
+                inset 0 2px 5px var(--glass-border);
         }
 
         /* Click Physics */
         .dock-item:active {
             transform: translateY(-5px) scale(1.05);
-            background: rgba(255, 255, 255, 0.7);
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            background: var(--dock-item-bg);
+            box-shadow: 0 5px 10px var(--glass-shadow);
         }
 
         /* Light Reflection */
@@ -219,7 +264,7 @@
             left: 20%;
             width: 60%;
             height: 6px;
-            background: rgba(255, 255, 255, 0.9);
+            background: var(--glass-border);
             filter: blur(5px);
             border-radius: 50%;
             opacity: 0;
@@ -252,10 +297,76 @@
             pointer-events: none;
         }
 
+        body.dark-mode .dock-item::before {
+            background: rgba(255, 255, 255, 0.9);
+            color: black;
+        }
+
         .dock-item:hover::before {
             opacity: 1;
             visibility: visible;
             top: -55px; 
+        }
+
+        /* --- RESUME MODAL --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: var(--modal-overlay);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1.2);
+        }
+        
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-content {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 15px 35px var(--glass-shadow);
+            border-radius: 24px;
+            padding: 40px;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            transform: scale(0.8) translateY(20px);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1.2);
+            position: relative;
+        }
+        
+        .modal-overlay.active .modal-content {
+            transform: scale(1) translateY(0);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px; right: 15px;
+            background: var(--code-bg);
+            border: 1px solid var(--glass-border);
+            color: var(--text-main);
+            font-size: 1.2rem;
+            border-radius: 50%;
+            width: 30px; height: 30px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.2s;
+        }
+        
+        .close-modal:hover {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
         }
 
         /* --- NEW ANIMATIONS --- */
@@ -306,23 +417,23 @@
         }
 
         .bg-cloud {
-            position: fixed; /* Fixed to viewport */
-            fill: rgba(255, 255, 255, 0.5);
+            position: fixed; 
+            fill: var(--cloud-fill);
             filter: blur(5px);
             z-index: 0;
-            pointer-events: none; /* Let clicks pass through */
-            transition: transform 0.1s ease-out; /* Smooth parallax */
+            pointer-events: none; 
+            transition: transform 0.1s ease-out, fill 0.5s ease; 
             will-change: transform, left;
         }
 
         .cloud-1 { top: 15%; width: 180px; animation: cloudDrift 50s linear infinite; }
-        .cloud-2 { top: 45%; width: 280px; animation: cloudDrift 80s linear infinite; animation-delay: -20s; fill: rgba(255, 255, 255, 0.25); filter: blur(8px); }
+        .cloud-2 { top: 45%; width: 280px; animation: cloudDrift 80s linear infinite; animation-delay: -20s; opacity: 0.5; filter: blur(8px); }
         .cloud-3 { top: 75%; width: 140px; animation: cloudDrift 40s linear infinite; animation-delay: -10s; filter: blur(3px); }
-        .cloud-4 { top: 25%; width: 100px; animation: cloudDrift 95s linear infinite; animation-delay: -45s; fill: rgba(255, 255, 255, 0.7); filter: blur(2px); }
+        .cloud-4 { top: 25%; width: 100px; animation: cloudDrift 95s linear infinite; animation-delay: -45s; opacity: 0.8; filter: blur(2px); }
 
         .container {
             position: relative;
-            z-index: 10; /* Keep the glass container above the moving clouds */
+            z-index: 10; 
         }
 
         @media (max-width: 600px) {
@@ -359,7 +470,7 @@
     <p>As a passionate Cloud DevOps Engineer, one of my core engineering principles is that <strong>infrastructure should be invisible and reproducible</strong>. This translates to building systems where manual configuration is strictly forbidden, relying entirely on Infrastructure as Code (IaC) to eliminate drift and scale seamlessly.</p>
     <p>Take a look at my recent approach to multi-region failovers: by treating cloud resources as disposable, we can tear down and rebuild entire staging environments in under 4 minutes.</p>
 
-    <a href="resume.pdf" download class="glass-btn">
+    <a href="#" class="glass-btn resume-link">
         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
             <polyline points="7 10 12 15 17 10"></polyline>
@@ -375,7 +486,7 @@
         <div class="release-title">Project: Serverless Event-Driven ETL Pipeline</div>
         <p class="release-desc">Check out the AWS Step Functions workflow to see how EventBridge triggers Lambda functions asynchronously! I recently updated this to use Go instead of Python for a 40% reduction in cold-start times.</p>
         <!-- LINK UPDATED TO POINT TO COMING SOON PAGE -->
-        <p><a href="coming_soon_page.html">[View Architecture Diagram &amp; Code &rarr;]</a></p> 
+        <p><a href="coming-soon.html">[View Architecture Diagram &amp; Code &rarr;]</a></p> 
     </div>
 
     <hr>
@@ -428,7 +539,7 @@
     </a>
 
     <!-- Resume Icon -->
-    <a href="resume.pdf" download class="dock-item" data-title="Resume">
+    <a href="#" class="dock-item resume-link" data-title="Resume">
         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
             <polyline points="14 2 14 8 20 8"></polyline>
@@ -459,10 +570,81 @@
             <polyline points="22,6 12,13 2,6"></polyline>
         </svg>
     </a>
+
+    <a href="#" class="dock-item" id="darkModeToggle" data-title="Theme">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <!-- Moon Icon Default -->
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path> 
+        </svg>
+    </a>
 </nav>
+
+<!-- MODAL OVERLAY -->
+<div class="modal-overlay" id="resumeModal">
+    <div class="modal-content">
+        <button class="close-modal" id="closeModal">&times;</button>
+        <h2 style="margin-top: 0;">Download Resume</h2>
+        <p>Get a comprehensive overview of my infrastructure projects, certifications, and DevOps experience.</p>
+        
+        <!-- ACTUAL DOWNLOAD LINK INSIDE MODAL -->
+        <a href="resume.pdf" download class="glass-btn" style="margin-top: 20px;">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Confirm Download (.pdf)
+        </a>
+    </div>
+</div>
 
 <!-- INTERACTIVE CLOUD PARALLAX LOGIC -->
 <script>
+    
+    // --- DARK MODE LOGIC ---
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    darkModeToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.body.classList.toggle('dark-mode');
+        
+        // Swap icon between Moon and Sun
+        const svg = darkModeToggle.querySelector('svg');
+        if (document.body.classList.contains('dark-mode')) {
+            // Sun Icon
+            svg.innerHTML = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
+        } else {
+            // Moon Icon
+            svg.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+        }
+    });
+
+    // --- MODAL LOGIC ---
+    const resumeLinks = document.querySelectorAll('.resume-link');
+    const modal = document.getElementById('resumeModal');
+    const closeModal = document.getElementById('closeModal');
+
+    // Open Modal
+    resumeLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault(); // Stop default navigation
+            modal.classList.add('active');
+        });
+    });
+
+    // Close Modal on X click
+    closeModal.addEventListener('click', () => {
+        modal.classList.remove('active');
+    });
+
+    // Close Modal on clicking outside the box
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.remove('active');
+        }
+    });
+
+
+    // --- PARALLAX LOGIC (Existing) ---
     document.addEventListener('mousemove', (e) => {
         // Calculate mouse offset relative to the center of the screen
         const x = (window.innerWidth / 2 - e.pageX) / 30;
